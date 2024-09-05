@@ -1,10 +1,12 @@
 package ftn.devops.user.messaging.notifier;
 
-import ftn.devops.user.messaging.messages.BaseMessage;
 import java.util.List;
+
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+
+import ftn.devops.user.messaging.messages.BaseMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
 @Slf4j
 @RequiredArgsConstructor
