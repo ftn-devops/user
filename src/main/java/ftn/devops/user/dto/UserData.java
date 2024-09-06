@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 @Builder
 public class UserData {
-    private Integer id;
+    private String id;
     private String name;
     private String lastName;
     private String username;
@@ -18,7 +18,6 @@ public class UserData {
     private float avgRate;
 
     public UserData(User user) {
-        this.id = user.getId();
         this.name = user.getFirstName();
         this.lastName = user.getLastName();
         this.username = user.getUsername();
@@ -28,7 +27,7 @@ public class UserData {
         this.avgRate = user.getAverageGrade();
     }
 
-    public UserData(Integer id, String name, String lastName, String username, String password, String email, RoleType role, float avgRate) {
+    public UserData(String id, String name, String lastName, String username, String password, String email, RoleType role, float avgRate) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
