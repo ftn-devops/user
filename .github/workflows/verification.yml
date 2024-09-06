@@ -16,6 +16,12 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
+      
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v3.0.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
 
       - name: Build with Gradle
         run: gradle build -x test
