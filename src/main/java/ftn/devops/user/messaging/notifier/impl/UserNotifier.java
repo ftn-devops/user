@@ -1,6 +1,7 @@
 package ftn.devops.user.messaging.notifier.impl;
 
 import ftn.devops.user.messaging.messages.UserCreatedMessage;
+import ftn.devops.user.messaging.messages.UserRatedMessage;
 import ftn.devops.user.messaging.messages.UserUpdatedMessage;
 import ftn.devops.user.messaging.notifier.BaseNotifier;
 import ftn.devops.user.messaging.notifier.IUserNotifier;
@@ -24,5 +25,10 @@ public class UserNotifier extends BaseNotifier implements IUserNotifier {
     @Override
     public void fireUserUpdatedNotification(UserUpdatedMessage message) {
         super.sendMessage(Exchange.USER, RoutingKey.USER_UPDATE, message);
+    }
+
+    @Override
+    public void fireUserRateddNotification(UserRatedMessage message) {
+        super.sendMessage(Exchange.USER, RoutingKey.USER_RATED, message);
     }
 }

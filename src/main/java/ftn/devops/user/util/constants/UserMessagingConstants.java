@@ -17,6 +17,8 @@ public class UserMessagingConstants {
         public static final String USER_CREATE = "create";
 
         public static final String USER_UPDATE = "update";
+
+        public static final String USER_RATED = "rate";
     }
 }
 

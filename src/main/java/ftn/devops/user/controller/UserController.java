@@ -39,7 +39,7 @@ public class UserController {
     }
 
     @GetMapping("/test")
-    void testUserMessaging(){
+    void testUserMessaging() {
         var userCreatedMessage = UserCreatedMessage.builder()
             .averageGrade(8.2f)
             .email("nadja@mail.com")
@@ -59,5 +59,4 @@ public class UserController {
         userNotifier.fireUserCreatedNotification(userCreatedMessage);
         userNotifier.fireUserUpdatedNotification(userUpdatedMessage);
     }
-
 }

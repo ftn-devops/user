@@ -4,7 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import ftn.devops.user.entity.Role;
 import ftn.devops.user.entity.RoleType;
+import org.springframework.stereotype.Repository;
 
-public interface RoleRepository extends JpaRepository<Role, String> {
+@Repository
+public interface RoleRepository extends JpaRepository<Role, Integer> {
     Role findByRoleType(RoleType roleType); 
 }
