@@ -16,6 +16,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
+          cache: gradle
       
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v3.0.0
