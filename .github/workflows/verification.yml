@@ -16,9 +16,15 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
+          cache: gradle
 
       - name: Build with Gradle
         run: gradle build -x test
+      
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v3.0.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Unit and Integration tests
         run: gradle test
