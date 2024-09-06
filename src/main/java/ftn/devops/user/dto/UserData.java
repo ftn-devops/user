@@ -18,6 +18,7 @@ public class UserData {
     private float avgRate;
 
     public UserData(User user) {
+        this.id = user.getId();
         this.name = user.getFirstName();
         this.lastName = user.getLastName();
         this.username = user.getUsername();
