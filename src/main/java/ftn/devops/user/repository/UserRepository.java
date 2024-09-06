@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import ftn.devops.user.entity.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, String> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
     User findByUsernameAndPassword(String username, String password);
 
