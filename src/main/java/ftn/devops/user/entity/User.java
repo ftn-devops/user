@@ -1,5 +1,6 @@
 package ftn.devops.user.entity;
 
+import ftn.devops.user.dto.UserData;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -38,4 +39,15 @@ public class User extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
+
+    public User(UserData userData){
+        this.setId(Integer.parseInt(userData.getId()));
+        this.firstName = userData.getName();
+        this.lastName = userData.getLastName();
+        this.username = userData.getUsername();
+        this.password = userData.getPassword();
+        this.email = userData.getEmail();
+        this.averageGrade = userData.getAvgRate();
+    }
 }
+
