@@ -7,6 +7,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import ftn.devops.user.entity.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -53,8 +54,8 @@ class UserServiceUnitTests {
         // Arrange
         var username = "username";
         var password = "password";
-        var user = new UserData(null, "name", "lastName", username, password, "email", RoleType.GUEST, 0);
-        var userEntity = user.toEntity();
+        var user = new UserData("123", "name", "lastName", username, password, "email", RoleType.GUEST, 0);
+        var userEntity = new User(user);
         userEntity.setRole(new Role(RoleType.GUEST));
         when(userRepository.findByUsernameAndPassword(username, password)).thenReturn(userEntity);
         // Act
@@ -68,9 +69,9 @@ class UserServiceUnitTests {
         // Arrange
         var username = "username";
         var password = "password";
-        var user = new UserData(null, "name", "lastName", username, password, "email", RoleType.GUEST, 0);
+        var user = new UserData("123", "name", "lastName", username, password, "email", RoleType.GUEST, 0);
         when(userRepository.findByUsername(username)).thenReturn(null);
-        var userEntity = user.toEntity();
+        var userEntity = new User(user);
         userEntity.setRole(new Role(RoleType.GUEST));
         when(userRepository.save(any())).thenReturn(userEntity);
         when(roleRepository.findByRoleType(any())).thenReturn(new Role(RoleType.GUEST));
